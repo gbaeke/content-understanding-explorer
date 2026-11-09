@@ -1,0 +1,55 @@
+[project]
+name = "content-understanding"
+version = "0.1.0"
+description = "Content Understanding Explorer"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "azure-ai-contentunderstanding>=1.1.0",
+    "azure-identity>=1.27.0",
+    "fastapi>=0.162.2",
+    "pillow>=13.0.0",
+    "pydantic-settings>=2.16.2",
+    "pypdfium2>=5.15.2",
+    "python-multipart>=0.0.33",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+content-understanding = "content_understanding:main"
+
+[build-system]
+requires = ["uv_build>=0.13.4,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.16.0",
+    "pyright>=1.1.414",
+    "pytest>=9.2.0",
+    "ruff>=0.17.4",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+# pycodestyle, pyflakes, isort, bugbear, pyupgrade, simplify, comprehensions, return, pathlib, ruff, FastAPI,
+# security (bandit), unused arguments, print, commented-out code, and McCabe complexity: a function over 10
+# branches is a function to split
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "C4", "RET", "PTH", "RUF", "FAST", "S", "ARG", "T20", "ERA", "C90"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S105", "S106", "ARG"]  # asserts, test secrets, fixtures used for their side effect
+"src/*/openapi.py" = ["T201"]  # prints the schema
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.pyright]
+include = ["src", "tests"]
+typeCheckingMode = "standard"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
