@@ -1,5 +1,7 @@
+import { useQuery } from '@tanstack/react-query'
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import type { ReactNode } from 'react'
+import { infoOptions } from '@/client/@tanstack/react-query.gen'
 import { bands } from '@/lib/confidence'
 import { cn } from '@/lib/utils'
 
@@ -112,6 +114,8 @@ function PolygonFigure() {
 }
 
 export function HowItWorks() {
+  // the model the analyzer is configured with, so this page never names a stale one
+  const model = useQuery({ ...infoOptions(), staleTime: Infinity }).data?.model ?? 'chat model'
   return (
     <div className="h-full overflow-auto">
       <div className="mx-auto max-w-5xl space-y-10 px-6 py-8">
@@ -183,7 +187,7 @@ export function HowItWorks() {
                 </Box>
                 <Arrow />
                 <Box title="2. Extract" className="flex-1 border-accent bg-accent-soft">
-                  gpt-6-luna deployment fills the fields from your descriptions
+                  the {model} deployment fills the fields from your descriptions
                 </Box>
                 <Arrow />
                 <Box title="3. Ground" className="flex-1">
@@ -206,7 +210,7 @@ export function HowItWorks() {
           </p>
           <Code>{`{
   "baseAnalyzerId": "prebuilt-document",
-  "models": { "completion": "gpt-6-luna", "embedding": "text-embedding-3-large" },
+  "models": { "completion": "${model}", "embedding": "text-embedding-3-large" },
   "fieldSchema": { "fields": {
     "InvoiceNumber": {
       "type": "string",
