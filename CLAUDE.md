@@ -11,7 +11,7 @@ Python with uv, ruff and pyright.
 ## Commands
 
 ```bash
-scripts/check.sh [--fix]          # THE quality gate (= CI): ruff, pyright, pytest, API types, prettier, oxlint, tsc
+scripts/check.sh [--fix]          # THE quality gate: ruff, pyright, pytest, API types, prettier, oxlint, tsc
 scripts/versions.sh               # what is outdated: packages, runtimes, actions, Bicep API versions
 scripts/run-local.sh [--dev]     # run the app on :8809; --dev adds Vite hot reload on :5173
 cd frontend && npm run gen:api    # regenerate the API client (src/client/) after any API change
