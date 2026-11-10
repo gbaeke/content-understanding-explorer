@@ -1,7 +1,9 @@
 # What we learned about Azure Content Understanding
 
 Notes from building the invoice explorer on 9 November 2026. Everything under "Measured" comes from runs against
-our own Foundry resource with `samples/invoice.pdf`. Everything under "From the docs" comes from Microsoft Learn
+our own Foundry resource with `samples/invoice.pdf` (one page, 4 line items), `samples/invoice-100-items.pdf`
+(four pages, 100 line items), and two photos of the one-page invoice (`samples/invoice-photo.jpeg` and a blurred
+copy). Everything under "From the docs" comes from Microsoft Learn
 and was not tested here. Inferences are marked as such.
 
 ## The short version
@@ -10,9 +12,13 @@ and was not tested here. Inferences are marked as such.
   to an LLM) with one call. You define an analyzer with described fields and get typed values back.
 - The part the old pipeline could not do: every value comes with a confidence score and the place on the page it
   was read from.
-- On a clean one-page invoice all 38 values were correct, in about 15 seconds.
+- On a clean one-page invoice all 38 values were correct, in about 15 seconds. On a four-page invoice with 100
+  line items all 500 cells and the totals were correct, in 106 seconds.
+- A phone photo of a screen, taken at an angle, gave the same result as the PDF: all values correct.
 - The confidence score barely depends on the chat model. It also runs low on table cells that are correct. Do not
   read it as "probability the value is right" without measuring it on your own documents.
+- On a heavily blurred photo 8 of 38 values were misread, and the confidence did not drop: wrong values scored
+  the same as correct ones. The score does not tell you that an image is hard to read.
 
 ## How the service works
 
@@ -100,13 +106,110 @@ The same document gave `BE 0712.345.678` in one run and `VAT BE 0712.345.678` in
 the "IBAN" and "BIC" labels in front of those values. If the exact text matters, say so in the field description
 (for example "without the VAT prefix") or clean it up after extraction.
 
+### A long invoice: 100 line items on four pages
+
+`samples/invoice-100-items.pdf` has 100 generated lines, two VAT rates (21% and 6%) and a table that continues
+over three page breaks. `samples/invoice-100-items.json` holds the expected values, so the comparison below is
+automatic. Model: `gpt-6.1-sol`, two runs.
+
+| Check | Result |
+|---|---|
+| Line items returned | 100 of 100, in the right order |
+| Line item cells correct | 500 of 500 |
+| Invoice number, purchase order, subtotal, VAT, total, currency | 6 of 6 correct |
+| Values with a page region | all |
+| Regions per page | 105, 155, 155 and 85 on pages 1 to 4 |
+| Time | 106 seconds, in both runs |
+
+- **Page breaks caused no problem.** No row was dropped, merged or duplicated, and every region is on the right
+  page. The header was found on page 1, the totals and payment details on page 4.
+- **The VAT total was read correctly**: the "Total VAT" line, and neither of the two per-rate amounts.
+- **Time grows with the number of values.** 13 seconds for 4 lines, 106 seconds for 100: about one second per
+  line item on this model. Inference: the time goes to the chat model writing out 500 values with their sources.
+  Four pages of OCR cannot explain it, since one page takes a fraction of 13 seconds.
+
+Confidence per column, all cells correct:
+
+| Column | Average | Lowest |
+|---|---|---|
+| Description | 0.78 | 0.67 |
+| Quantity | 0.79 | 0.67 |
+| Unit price | 0.88 | 0.67 |
+| VAT rate | 0.79 | 0.61 |
+| Amount | 0.89 | 0.78 |
+
+The scores are higher than on the 4-line invoice, where the VAT rate column averaged about 0.55. Here nothing is
+below 0.61. We do not know why. The rows are closer together and the values vary more between rows, but that is
+a guess.
+
+### Photos of the invoice
+
+Three pictures of the one-page invoice, compared with its known values. Model: `gpt-6.1-sol`, one run each.
+
+| Picture | What it is | Correct | Time |
+|---|---|---|---|
+| Phone photo, full size | A photo of the invoice on a screen, taken at an angle. 5712 by 4284 pixels, 10.7 MB, stored rotated with an orientation flag. | 37 of 38 | 17.5 s |
+| `invoice-photo.jpeg` | The same photo scaled to 1500 by 2000 pixels, JPEG quality 70, 358 KB. | 38 of 38 | 12.8 s |
+| `invoice-photo-blurred.jpeg` | The scaled photo with a Gaussian blur of radius 2.5. | 30 of 38 | 12.7 s |
+
+**A normal photo works as well as the PDF.**
+
+- The one difference on the full-size photo was a missing full stop at the end of the payment terms. The scaled
+  copy had no difference at all.
+- The service handles rotation and skew. It reports the page upright (4284 by 5712 pixels for the full-size
+  photo) and gives the regions in that upright frame, in pixels.
+- Scaling the photo to about 7% of its pixels cost almost nothing: confidence dropped by 0.02 to 0.06.
+- Line item cells scored higher on the photo (average 0.80) than on the clean PDF (0.72). The score is not a
+  measure of image quality.
+
+**The blurred photo is where it breaks.** The blur is heavy: a person can read the large text, and struggles with
+the small footer print too. So the misreadings themselves are understandable. All numbers in the line items and
+totals were still correct, as were the invoice number, both dates and the purchase order. The errors are in text
+and in the footer:
+
+| Field | Extracted | Should be | Confidence |
+|---|---|---|---|
+| BIC | `ОИССВEBS` (with Cyrillic letters) | `GKCCBEBB` | 0.92 |
+| Customer name | `Ateller Lumen NV` | `Atelier Lumen NV` | 0.93 |
+| Line 1 description | `Azure archtecture workshop (per day)` | `Azure architecture workshop (per day)` | 0.88 |
+| Payment reference | `+++167:2026/00081+..` | `+++147/2026/00381+++` | 0.86 |
+| Customer address | `Meir 102 2000 Artwerpen, Belgium` | `Meir 102 2000 Antwerpen, Belgium` | 0.86 |
+| Vendor address | `Korenmarkt 14 9000 Gent, Beiglum` | `Korenmarkt 14 9000 Gent, Belgium` | 0.86 |
+| Payment terms | `Payment withen 30 days ... cary 8'% interest per year` | `Payment within 30 days ... carry 8% interest per year.` | 0.82 |
+| IBAN | `8E68 5390 0754 7904` | `BE68 5390 0754 7034` | 0.67 |
+
+**The confidence did not drop with the misreadings.**
+
+| | Lowest | Average | Highest |
+|---|---|---|---|
+| Correct values (30) | 0.55 | 0.84 | 0.98 |
+| Wrong values (8) | 0.67 | 0.85 | 0.93 |
+
+- Seven of the eight wrong values scored 0.8 or higher. A correct quantity on the same page scored 0.55.
+- No threshold separates them on this picture. A review line at 0.5 catches none of the errors. A line at 0.9
+  catches six of the eight and also flags most correct values.
+- A person would say "I cannot read this IBAN reliably". The service returned a plausible-looking wrong IBAN at
+  0.67 and a BIC in Cyrillic letters at 0.92.
+
+This fits the earlier inference: the score reflects how well a value matches the words the service read. When
+the words themselves are misread, the value matches them perfectly and the score stays high.
+
+This is one synthetic picture, so it is a data point and not a measurement. What it does show is that the score
+cannot be the only safeguard on poor images. Checks that do not depend on it would have caught several of these
+errors: the IBAN checksum, the checksum of the Belgian structured reference, a format rule for the BIC, and
+arithmetic on the totals.
+
 ### Thresholds
 
 The first version of the app flagged everything below 0.8 for review, which asked a human to check 14 correct
 values. The thresholds are now 0.8 and up for green and below 0.5 for review (`frontend/src/lib/confidence.ts`).
 
-These numbers are fitted to one document where nothing went wrong. That shows how low a correct value can score.
-It does not show how a wrong value scores, which is what a review threshold depends on. See "Open questions".
+On the 100-line invoice no cell scores below 0.5, so nothing is flagged. With the first threshold of 0.8, 179 of
+the 500 correct cells would have been flagged.
+
+These thresholds are fitted to clean documents: 538 values on the two PDFs, all correct, with scores as low as
+0.54. They keep a human from checking correct values. They do not catch errors: on the blurred photo seven of
+eight wrong values scored in the green band (see "Photos of the invoice").
 
 ## Models
 
@@ -173,9 +276,9 @@ The live service lists these chat models for `prebuilt-document` (read with `GET
 
 ## Open questions
 
-1. **How do wrong values score?** Run degraded versions of the sample (blurred, rotated, a phone photo, a
-   low-resolution scan) and real invoices with known answers, then tabulate confidence against correctness. Without
-   this the review threshold is a guess.
+1. **Where is the edge between a readable and an unreadable picture?** A normal phone photo was fine and a heavy
+   blur was not, with the same confidence in both. Try a light blur that a person reads without effort, a
+   low-resolution scan, and real invoices with known answers, and tabulate confidence against correctness.
 2. **Do labeled samples raise the line item scores?** The docs suggest they calibrate confidence.
 3. **Is the embedding model required** for an analyzer without labeled samples?
 4. **Does a cheaper model keep the accuracy?** `gpt-5.4-mini` or a nano model on harder documents. The confidence
@@ -196,7 +299,8 @@ The live service lists these chat models for `prebuilt-document` (read with `GET
 | Confidence thresholds | `frontend/src/lib/confidence.ts` |
 | Visual explanation in the app | `/how-it-works` (`frontend/src/pages/HowItWorks.tsx`) |
 | Azure resources | `infra/main.bicep`, `scripts/azure-up.sh` |
-| Sample invoice and its generator | `samples/invoice.pdf`, `scripts/make_sample_invoice.py` |
+| Sample invoices and their generator | `samples/invoice.pdf`, `samples/invoice-100-items.pdf` (with expected values in `.json`), `scripts/make_sample_invoice.py [--items N]` |
+| Photos of the one-page invoice | `samples/invoice-photo.jpeg`, `samples/invoice-photo-blurred.jpeg` (no metadata) |
 
 Azure: resource group `rg-geert-content-understanding` in Sweden Central, one Foundry resource with deployments
 `gpt-6-luna`, `gpt-6.1-sol`, `gpt-5.2` (unused) and `text-embedding-3-large`.

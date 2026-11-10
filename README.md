@@ -85,8 +85,13 @@ invoices beyond that list.
 ## What we learned
 
 [docs/learnings.md](docs/learnings.md): how the service works, what we measured on the sample invoice (accuracy,
-confidence per section, three chat models), and what is still open. The main finding: the confidence score barely
-depends on the chat model, and it runs low on table cells that are correct.
+confidence per section, three chat models, a 100-line invoice over four pages, phone photos), and what is still
+open. The main findings: extraction was correct on clean PDFs and on a normal phone photo. The confidence score
+barely depends on the chat model, runs low on table cells that are correct, and stayed high on a blurred photo
+where 8 of 38 values were misread.
+
+[docs/unexplored.md](docs/unexplored.md): the features of the service this sample does not use yet, and a
+suggested order to try them.
 
 ## Develop
 
@@ -103,4 +108,4 @@ Tests use a result recorded from the real service (`tests/data/invoice_result.js
 | HTTP endpoints | `src/content_understanding/api/extract.py` |
 | Page viewer with the box overlay | `frontend/src/components/DocumentViewer.tsx` |
 | Azure resources | `infra/main.bicep`, `scripts/azure-up.sh` |
-| Sample invoice and its generator | `samples/invoice.pdf`, `scripts/make_sample_invoice.py` |
+| Sample invoices and their generator | `samples/invoice.pdf`, `samples/invoice-100-items.pdf` (expected values in the `.json` next to it), `scripts/make_sample_invoice.py [--items N]` |

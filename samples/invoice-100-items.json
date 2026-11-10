@@ -1,0 +1,710 @@
+{
+ "InvoiceNumber": "2026-0148",
+ "PurchaseOrder": "PO-88240",
+ "Subtotal": 309548.08,
+ "VatAmount": 59635.58,
+ "TotalAmount": 369183.66,
+ "Currency": "EUR",
+ "LineItems": [
+  {
+   "Description": "Workshop preparation (per hour), October 2026",
+   "Quantity": 26,
+   "UnitPrice": 101.89,
+   "VatRate": "21%",
+   "Amount": 2649.14
+  },
+  {
+   "Description": "Reference book, cloud architecture, September 2026",
+   "Quantity": 35,
+   "UnitPrice": 50.54,
+   "VatRate": "6%",
+   "Amount": 1768.9
+  },
+  {
+   "Description": "Consulting, data engineer (per hour), week 44",
+   "Quantity": 17,
+   "UnitPrice": 106.6,
+   "VatRate": "21%",
+   "Amount": 1812.2
+  },
+  {
+   "Description": "Consulting, senior architect (per hour), week 40",
+   "Quantity": 22,
+   "UnitPrice": 154.76,
+   "VatRate": "21%",
+   "Amount": 3404.72
+  },
+  {
+   "Description": "Azure OpenAI consumption, week 40",
+   "Quantity": 12,
+   "UnitPrice": 306.09,
+   "VatRate": "21%",
+   "Amount": 3673.08
+  },
+  {
+   "Description": "Workshop preparation (per hour), week 42",
+   "Quantity": 24,
+   "UnitPrice": 97.83,
+   "VatRate": "21%",
+   "Amount": 2347.92
+  },
+  {
+   "Description": "Training manual, printed, week 40",
+   "Quantity": 26,
+   "UnitPrice": 24.56,
+   "VatRate": "6%",
+   "Amount": 638.56
+  },
+  {
+   "Description": "Log Analytics ingestion, week 43",
+   "Quantity": 11,
+   "UnitPrice": 81.31,
+   "VatRate": "21%",
+   "Amount": 894.41
+  },
+  {
+   "Description": "Travel expenses, kilometre allowance, September 2026",
+   "Quantity": 12,
+   "UnitPrice": 65.83,
+   "VatRate": "21%",
+   "Amount": 789.96
+  },
+  {
+   "Description": "Consulting, senior architect (per hour), October 2026",
+   "Quantity": 37,
+   "UnitPrice": 153.08,
+   "VatRate": "21%",
+   "Amount": 5663.96
+  },
+  {
+   "Description": "Workshop preparation (per hour), August 2026",
+   "Quantity": 16,
+   "UnitPrice": 97.89,
+   "VatRate": "21%",
+   "Amount": 1566.24
+  },
+  {
+   "Description": "Log Analytics ingestion, week 43",
+   "Quantity": 9,
+   "UnitPrice": 113.52,
+   "VatRate": "21%",
+   "Amount": 1021.68
+  },
+  {
+   "Description": "Support plan, monthly fee, August 2026",
+   "Quantity": 39,
+   "UnitPrice": 301.08,
+   "VatRate": "21%",
+   "Amount": 11742.12
+  },
+  {
+   "Description": "Azure OpenAI consumption, week 41",
+   "Quantity": 38,
+   "UnitPrice": 656.88,
+   "VatRate": "21%",
+   "Amount": 24961.44
+  },
+  {
+   "Description": "Azure AI Search, standard tier, week 42",
+   "Quantity": 35,
+   "UnitPrice": 240.56,
+   "VatRate": "21%",
+   "Amount": 8419.6
+  },
+  {
+   "Description": "Travel expenses, kilometre allowance, week 44",
+   "Quantity": 26,
+   "UnitPrice": 90.3,
+   "VatRate": "21%",
+   "Amount": 2347.8
+  },
+  {
+   "Description": "Train ticket Gent - Brussel, September 2026",
+   "Quantity": 20,
+   "UnitPrice": 9.81,
+   "VatRate": "6%",
+   "Amount": 196.2
+  },
+  {
+   "Description": "Training manual, printed, week 40",
+   "Quantity": 28,
+   "UnitPrice": 24.95,
+   "VatRate": "6%",
+   "Amount": 698.6
+  },
+  {
+   "Description": "Train ticket Gent - Brussel, week 44",
+   "Quantity": 38,
+   "UnitPrice": 20.54,
+   "VatRate": "6%",
+   "Amount": 780.52
+  },
+  {
+   "Description": "Azure Container Apps consumption, week 42",
+   "Quantity": 11,
+   "UnitPrice": 48.12,
+   "VatRate": "21%",
+   "Amount": 529.32
+  },
+  {
+   "Description": "Consulting, senior architect (per hour), September 2026",
+   "Quantity": 4,
+   "UnitPrice": 157.62,
+   "VatRate": "21%",
+   "Amount": 630.48
+  },
+  {
+   "Description": "Train ticket Gent - Brussel, week 40",
+   "Quantity": 20,
+   "UnitPrice": 16.74,
+   "VatRate": "6%",
+   "Amount": 334.8
+  },
+  {
+   "Description": "Software licence, annual seat, week 42",
+   "Quantity": 22,
+   "UnitPrice": 329.08,
+   "VatRate": "21%",
+   "Amount": 7239.76
+  },
+  {
+   "Description": "Log Analytics ingestion, September 2026",
+   "Quantity": 31,
+   "UnitPrice": 9.65,
+   "VatRate": "21%",
+   "Amount": 299.15
+  },
+  {
+   "Description": "Azure OpenAI consumption, September 2026",
+   "Quantity": 39,
+   "UnitPrice": 746.98,
+   "VatRate": "21%",
+   "Amount": 29132.22
+  },
+  {
+   "Description": "Azure OpenAI consumption, September 2026",
+   "Quantity": 26,
+   "UnitPrice": 77.79,
+   "VatRate": "21%",
+   "Amount": 2022.54
+  },
+  {
+   "Description": "Training manual, printed, week 44",
+   "Quantity": 35,
+   "UnitPrice": 29.41,
+   "VatRate": "6%",
+   "Amount": 1029.35
+  },
+  {
+   "Description": "Consulting, senior architect (per hour), October 2026",
+   "Quantity": 4,
+   "UnitPrice": 156.03,
+   "VatRate": "21%",
+   "Amount": 624.12
+  },
+  {
+   "Description": "Train ticket Gent - Brussel, August 2026",
+   "Quantity": 13,
+   "UnitPrice": 15.16,
+   "VatRate": "6%",
+   "Amount": 197.08
+  },
+  {
+   "Description": "Hotel night, project site, September 2026",
+   "Quantity": 3,
+   "UnitPrice": 128.66,
+   "VatRate": "6%",
+   "Amount": 385.98
+  },
+  {
+   "Description": "Workshop preparation (per hour), September 2026",
+   "Quantity": 8,
+   "UnitPrice": 98.18,
+   "VatRate": "21%",
+   "Amount": 785.44
+  },
+  {
+   "Description": "Azure Container Apps consumption, week 43",
+   "Quantity": 3,
+   "UnitPrice": 30.03,
+   "VatRate": "21%",
+   "Amount": 90.09
+  },
+  {
+   "Description": "Software licence, annual seat, week 44",
+   "Quantity": 22,
+   "UnitPrice": 282.32,
+   "VatRate": "21%",
+   "Amount": 6211.04
+  },
+  {
+   "Description": "Reference book, cloud architecture, week 40",
+   "Quantity": 39,
+   "UnitPrice": 53.99,
+   "VatRate": "6%",
+   "Amount": 2105.61
+  },
+  {
+   "Description": "Support plan, monthly fee, week 43",
+   "Quantity": 10,
+   "UnitPrice": 307.14,
+   "VatRate": "21%",
+   "Amount": 3071.4
+  },
+  {
+   "Description": "Travel expenses, kilometre allowance, week 43",
+   "Quantity": 5,
+   "UnitPrice": 29.32,
+   "VatRate": "21%",
+   "Amount": 146.6
+  },
+  {
+   "Description": "Hotel night, project site, week 41",
+   "Quantity": 26,
+   "UnitPrice": 184.99,
+   "VatRate": "6%",
+   "Amount": 4809.74
+  },
+  {
+   "Description": "Travel expenses, kilometre allowance, September 2026",
+   "Quantity": 13,
+   "UnitPrice": 33.62,
+   "VatRate": "21%",
+   "Amount": 437.06
+  },
+  {
+   "Description": "Azure OpenAI consumption, week 43",
+   "Quantity": 18,
+   "UnitPrice": 898.33,
+   "VatRate": "21%",
+   "Amount": 16169.94
+  },
+  {
+   "Description": "Consulting, senior architect (per hour), week 41",
+   "Quantity": 3,
+   "UnitPrice": 143.14,
+   "VatRate": "21%",
+   "Amount": 429.42
+  },
+  {
+   "Description": "Hotel night, project site, week 41",
+   "Quantity": 15,
+   "UnitPrice": 111.96,
+   "VatRate": "6%",
+   "Amount": 1679.4
+  },
+  {
+   "Description": "Storage account, hot tier, September 2026",
+   "Quantity": 15,
+   "UnitPrice": 4.55,
+   "VatRate": "21%",
+   "Amount": 68.25
+  },
+  {
+   "Description": "Azure Container Apps consumption, August 2026",
+   "Quantity": 6,
+   "UnitPrice": 159.92,
+   "VatRate": "21%",
+   "Amount": 959.52
+  },
+  {
+   "Description": "Travel expenses, kilometre allowance, week 42",
+   "Quantity": 29,
+   "UnitPrice": 60.57,
+   "VatRate": "21%",
+   "Amount": 1756.53
+  },
+  {
+   "Description": "Consulting, senior architect (per hour), October 2026",
+   "Quantity": 6,
+   "UnitPrice": 156.85,
+   "VatRate": "21%",
+   "Amount": 941.1
+  },
+  {
+   "Description": "Consulting, senior architect (per hour), week 42",
+   "Quantity": 36,
+   "UnitPrice": 155.79,
+   "VatRate": "21%",
+   "Amount": 5608.44
+  },
+  {
+   "Description": "Workshop preparation (per hour), August 2026",
+   "Quantity": 1,
+   "UnitPrice": 97.38,
+   "VatRate": "21%",
+   "Amount": 97.38
+  },
+  {
+   "Description": "Reference book, cloud architecture, week 43",
+   "Quantity": 12,
+   "UnitPrice": 49.55,
+   "VatRate": "6%",
+   "Amount": 594.6
+  },
+  {
+   "Description": "Storage account, hot tier, week 44",
+   "Quantity": 13,
+   "UnitPrice": 25.4,
+   "VatRate": "21%",
+   "Amount": 330.2
+  },
+  {
+   "Description": "Azure OpenAI consumption, week 41",
+   "Quantity": 5,
+   "UnitPrice": 822.13,
+   "VatRate": "21%",
+   "Amount": 4110.65
+  },
+  {
+   "Description": "Training manual, printed, October 2026",
+   "Quantity": 28,
+   "UnitPrice": 25.32,
+   "VatRate": "6%",
+   "Amount": 708.96
+  },
+  {
+   "Description": "Support plan, monthly fee, September 2026",
+   "Quantity": 20,
+   "UnitPrice": 307.12,
+   "VatRate": "21%",
+   "Amount": 6142.4
+  },
+  {
+   "Description": "Workshop preparation (per hour), week 40",
+   "Quantity": 4,
+   "UnitPrice": 107.95,
+   "VatRate": "21%",
+   "Amount": 431.8
+  },
+  {
+   "Description": "Storage account, hot tier, week 43",
+   "Quantity": 23,
+   "UnitPrice": 49.0,
+   "VatRate": "21%",
+   "Amount": 1127.0
+  },
+  {
+   "Description": "Travel expenses, kilometre allowance, September 2026",
+   "Quantity": 3,
+   "UnitPrice": 92.29,
+   "VatRate": "21%",
+   "Amount": 276.87
+  },
+  {
+   "Description": "Hotel night, project site, August 2026",
+   "Quantity": 37,
+   "UnitPrice": 143.12,
+   "VatRate": "6%",
+   "Amount": 5295.44
+  },
+  {
+   "Description": "Workshop preparation (per hour), September 2026",
+   "Quantity": 19,
+   "UnitPrice": 102.21,
+   "VatRate": "21%",
+   "Amount": 1941.99
+  },
+  {
+   "Description": "Training manual, printed, October 2026",
+   "Quantity": 9,
+   "UnitPrice": 28.77,
+   "VatRate": "6%",
+   "Amount": 258.93
+  },
+  {
+   "Description": "Train ticket Gent - Brussel, October 2026",
+   "Quantity": 11,
+   "UnitPrice": 16.21,
+   "VatRate": "6%",
+   "Amount": 178.31
+  },
+  {
+   "Description": "Azure AI Search, standard tier, week 43",
+   "Quantity": 7,
+   "UnitPrice": 244.73,
+   "VatRate": "21%",
+   "Amount": 1713.11
+  },
+  {
+   "Description": "Training manual, printed, week 42",
+   "Quantity": 8,
+   "UnitPrice": 31.34,
+   "VatRate": "6%",
+   "Amount": 250.72
+  },
+  {
+   "Description": "Training manual, printed, week 44",
+   "Quantity": 19,
+   "UnitPrice": 32.65,
+   "VatRate": "6%",
+   "Amount": 620.35
+  },
+  {
+   "Description": "Azure OpenAI consumption, week 42",
+   "Quantity": 15,
+   "UnitPrice": 675.02,
+   "VatRate": "21%",
+   "Amount": 10125.3
+  },
+  {
+   "Description": "Consulting, senior architect (per hour), week 40",
+   "Quantity": 33,
+   "UnitPrice": 162.45,
+   "VatRate": "21%",
+   "Amount": 5360.85
+  },
+  {
+   "Description": "Consulting, data engineer (per hour), October 2026",
+   "Quantity": 31,
+   "UnitPrice": 115.96,
+   "VatRate": "21%",
+   "Amount": 3594.76
+  },
+  {
+   "Description": "Training manual, printed, week 44",
+   "Quantity": 23,
+   "UnitPrice": 32.17,
+   "VatRate": "6%",
+   "Amount": 739.91
+  },
+  {
+   "Description": "Software licence, annual seat, week 44",
+   "Quantity": 4,
+   "UnitPrice": 294.59,
+   "VatRate": "21%",
+   "Amount": 1178.36
+  },
+  {
+   "Description": "Hotel night, project site, week 41",
+   "Quantity": 2,
+   "UnitPrice": 160.34,
+   "VatRate": "6%",
+   "Amount": 320.68
+  },
+  {
+   "Description": "Support plan, monthly fee, September 2026",
+   "Quantity": 12,
+   "UnitPrice": 300.51,
+   "VatRate": "21%",
+   "Amount": 3606.12
+  },
+  {
+   "Description": "Consulting, senior architect (per hour), week 40",
+   "Quantity": 30,
+   "UnitPrice": 162.98,
+   "VatRate": "21%",
+   "Amount": 4889.4
+  },
+  {
+   "Description": "Reference book, cloud architecture, week 40",
+   "Quantity": 24,
+   "UnitPrice": 39.36,
+   "VatRate": "6%",
+   "Amount": 944.64
+  },
+  {
+   "Description": "Hotel night, project site, week 41",
+   "Quantity": 7,
+   "UnitPrice": 134.07,
+   "VatRate": "6%",
+   "Amount": 938.49
+  },
+  {
+   "Description": "Azure Container Apps consumption, week 44",
+   "Quantity": 40,
+   "UnitPrice": 83.61,
+   "VatRate": "21%",
+   "Amount": 3344.4
+  },
+  {
+   "Description": "Azure OpenAI consumption, October 2026",
+   "Quantity": 22,
+   "UnitPrice": 319.94,
+   "VatRate": "21%",
+   "Amount": 7038.68
+  },
+  {
+   "Description": "Support plan, monthly fee, October 2026",
+   "Quantity": 13,
+   "UnitPrice": 305.32,
+   "VatRate": "21%",
+   "Amount": 3969.16
+  },
+  {
+   "Description": "Reference book, cloud architecture, September 2026",
+   "Quantity": 21,
+   "UnitPrice": 52.99,
+   "VatRate": "6%",
+   "Amount": 1112.79
+  },
+  {
+   "Description": "Support plan, monthly fee, week 41",
+   "Quantity": 10,
+   "UnitPrice": 294.07,
+   "VatRate": "21%",
+   "Amount": 2940.7
+  },
+  {
+   "Description": "Training manual, printed, August 2026",
+   "Quantity": 14,
+   "UnitPrice": 19.77,
+   "VatRate": "6%",
+   "Amount": 276.78
+  },
+  {
+   "Description": "Hotel night, project site, week 44",
+   "Quantity": 39,
+   "UnitPrice": 148.94,
+   "VatRate": "6%",
+   "Amount": 5808.66
+  },
+  {
+   "Description": "Travel expenses, kilometre allowance, week 44",
+   "Quantity": 23,
+   "UnitPrice": 66.5,
+   "VatRate": "21%",
+   "Amount": 1529.5
+  },
+  {
+   "Description": "Consulting, senior architect (per hour), August 2026",
+   "Quantity": 28,
+   "UnitPrice": 137.49,
+   "VatRate": "21%",
+   "Amount": 3849.72
+  },
+  {
+   "Description": "Storage account, hot tier, week 43",
+   "Quantity": 12,
+   "UnitPrice": 12.69,
+   "VatRate": "21%",
+   "Amount": 152.28
+  },
+  {
+   "Description": "Azure OpenAI consumption, week 40",
+   "Quantity": 19,
+   "UnitPrice": 268.72,
+   "VatRate": "21%",
+   "Amount": 5105.68
+  },
+  {
+   "Description": "Storage account, hot tier, week 43",
+   "Quantity": 17,
+   "UnitPrice": 54.5,
+   "VatRate": "21%",
+   "Amount": 926.5
+  },
+  {
+   "Description": "Azure AI Search, standard tier, week 41",
+   "Quantity": 16,
+   "UnitPrice": 230.55,
+   "VatRate": "21%",
+   "Amount": 3688.8
+  },
+  {
+   "Description": "Travel expenses, kilometre allowance, August 2026",
+   "Quantity": 27,
+   "UnitPrice": 55.11,
+   "VatRate": "21%",
+   "Amount": 1487.97
+  },
+  {
+   "Description": "Consulting, data engineer (per hour), September 2026",
+   "Quantity": 11,
+   "UnitPrice": 119.4,
+   "VatRate": "21%",
+   "Amount": 1313.4
+  },
+  {
+   "Description": "Train ticket Gent - Brussel, week 42",
+   "Quantity": 14,
+   "UnitPrice": 17.01,
+   "VatRate": "6%",
+   "Amount": 238.14
+  },
+  {
+   "Description": "Train ticket Gent - Brussel, week 40",
+   "Quantity": 26,
+   "UnitPrice": 17.6,
+   "VatRate": "6%",
+   "Amount": 457.6
+  },
+  {
+   "Description": "Consulting, senior architect (per hour), week 42",
+   "Quantity": 3,
+   "UnitPrice": 148.99,
+   "VatRate": "21%",
+   "Amount": 446.97
+  },
+  {
+   "Description": "Azure Container Apps consumption, August 2026",
+   "Quantity": 5,
+   "UnitPrice": 127.26,
+   "VatRate": "21%",
+   "Amount": 636.3
+  },
+  {
+   "Description": "Azure AI Search, standard tier, week 41",
+   "Quantity": 38,
+   "UnitPrice": 230.83,
+   "VatRate": "21%",
+   "Amount": 8771.54
+  },
+  {
+   "Description": "Log Analytics ingestion, week 41",
+   "Quantity": 35,
+   "UnitPrice": 83.94,
+   "VatRate": "21%",
+   "Amount": 2937.9
+  },
+  {
+   "Description": "Storage account, hot tier, October 2026",
+   "Quantity": 9,
+   "UnitPrice": 24.37,
+   "VatRate": "21%",
+   "Amount": 219.33
+  },
+  {
+   "Description": "Reference book, cloud architecture, week 44",
+   "Quantity": 26,
+   "UnitPrice": 45.06,
+   "VatRate": "6%",
+   "Amount": 1171.56
+  },
+  {
+   "Description": "Support plan, monthly fee, week 44",
+   "Quantity": 7,
+   "UnitPrice": 298.17,
+   "VatRate": "21%",
+   "Amount": 2087.19
+  },
+  {
+   "Description": "Software licence, annual seat, September 2026",
+   "Quantity": 16,
+   "UnitPrice": 230.74,
+   "VatRate": "21%",
+   "Amount": 3691.84
+  },
+  {
+   "Description": "Consulting, data engineer (per hour), week 41",
+   "Quantity": 31,
+   "UnitPrice": 105.38,
+   "VatRate": "21%",
+   "Amount": 3266.78
+  },
+  {
+   "Description": "Azure OpenAI consumption, week 42",
+   "Quantity": 27,
+   "UnitPrice": 850.88,
+   "VatRate": "21%",
+   "Amount": 22973.76
+  },
+  {
+   "Description": "Reference book, cloud architecture, week 41",
+   "Quantity": 31,
+   "UnitPrice": 40.5,
+   "VatRate": "6%",
+   "Amount": 1255.5
+  }
+ ]
+}
